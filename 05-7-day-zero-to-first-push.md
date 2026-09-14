@@ -2,34 +2,48 @@
 
 Target: 15 minutes per day. You got this.
 
+**Important: Where are we working?**
+It is incredibly common to get confused about *where* an action happens. Throughout this guide, pay attention to which of these three places we are using:
+1. **GitHub Online (The Website):** Your web browser. This is the cloud where your secure copy lives.
+2. **The Terminal:** The text-based command tool on your computer.
+3. **GitHub Desktop (The App):** A visual program on your computer that does the exact same job as the Terminal, but with buttons. 
+
+*Note: You only need to use **either** the Terminal **or** the Desktop App on your computer. You do not need to use both!*
+
+---
+
 ## DAY 1 — GitHub + Git
 
-**Goal:** Create GitHub account, install Git, configure Git.
+**Goal:** Create an account, install the software, and sign your digital notebook.
 **Time needed:** 15 minutes.
 **Steps:** Follow the instructions in `02-how-to-install.md`.
 
-**Commands:**
+**If using Terminal:**
 ```bash
 git --version
 git config --global user.name "Your Name"
 git config --global user.email "your@email.com"
 ```
+**If using GitHub Desktop App:**
+Download the app, install it, and sign in with your GitHub account.
 
-**Explanation:** You are installing the software and signing your digital notebook.
 **Wet-lab analogy:** You bought a new lab notebook and wrote your name on the cover.
 
 **Success:**
 - [ ] I have a GitHub account
-- [ ] Git is installed
+- [ ] Git (or GitHub Desktop) is installed
 - [ ] Git has my name
 - [ ] Git has my email
+
+---
 
 ## DAY 2 — Create Your Private Lab Book
 
 **Goal:** Create a repository on GitHub.
+**Where:** **GitHub Online**
 **Time needed:** 5 minutes.
 **Steps:**
-1. Go to GitHub.
+1. Go to GitHub in your web browser.
 2. Click: **New** → **Repository**
 3. Name: `my-first-lab-book`
 4. Select: **Private**
@@ -40,151 +54,154 @@ git config --global user.email "your@email.com"
 
 **Success:** You can see your new empty private repository on GitHub.
 
+---
+
 ## DAY 3 — Clone It
 
-**Goal:** Copy the online repository to your computer.
+**Goal:** Take the empty online folder and download a "linked" working copy to your computer.
 **Time needed:** 10 minutes.
-**Steps:**
-Copy the repository URL from GitHub.
 
-**Commands:**
-```bash
-git clone YOUR_REPOSITORY_URL
-```
-Replace `YOUR_REPOSITORY_URL` with the URL GitHub gives you.
+**Step 1: Get the link (GitHub Online)**
+Copy the repository URL from GitHub (click the green **<> Code** button and copy the web URL).
 
-Then:
-```bash
-cd my-first-lab-book
-```
-**Explanation:** **cd** means "change directory". You are opening the folder.
+**Step 2: Clone it to your computer (Choose Terminal OR App)**
+*   **If using Terminal:**
+    ```bash
+    git clone YOUR_REPOSITORY_URL
+    ```
+    Then, open that folder:
+    ```bash
+    cd my-first-lab-book
+    ```
+    *(Explanation: **cd** means "change directory".)*
+*   **If using GitHub Desktop App:**
+    Go to **File** > **Clone Repository**. Click the **URL** tab, paste the link, and choose a folder on your computer to save it in. Click **Clone**.
 
-Create a file named `first-note.md` and put inside:
+**Step 3: Create a file (On your computer)**
+Open your new `my-first-lab-book` folder using standard Windows Explorer or Mac Finder. Create a file named `first-note.md` and put this inside:
 ```markdown
 # My First Lab Note
 Today I created my first Git repository.
 ```
-
-Then run:
-```bash
-git status
-```
-**Explanation:** Git tells you what changed in your folder.
 **Wet-lab analogy:** You are opening your binder and placing a loose piece of paper inside.
 
-**Success:** Git tells you that `first-note.md` is an untracked file.
+**Step 4: Check your status**
+*   **If using Terminal:** Type `git status`. It will show `first-note.md` in red as an "untracked file".
+*   **If using GitHub Desktop App:** Look at the left sidebar. You will see `first-note.md` appear there with a green `+`. The App runs `git status` for you visually!
+
+**Success:** Git sees that `first-note.md` is a new, unrecorded file.
+
+---
 
 ## DAY 4 — First Commit and Push
 
-**Goal:** Save your work and send it to GitHub.
+**Goal:** Tell Git to record the file you just made, and then upload that record to the internet.
 **Time needed:** 10 minutes.
-**Commands:**
 
-```bash
-git status
-```
+**Step 1: Stage and Commit (Recording locally)**
+*   **If using Terminal:**
+    ```bash
+    git add first-note.md
+    ```
+    *(Explanation: **add** puts the file on the "tray" to be recorded).*
+    ```bash
+    git commit -m "Add my first lab note"
+    ```
+    *(Explanation: **commit** writes the record permanently into your local history).*
+*   **If using GitHub Desktop App:**
+    Make sure the box next to `first-note.md` is checked. At the bottom left in the "Summary" box, type *"Add my first lab note"*. Click the blue **Commit to main** button.
 
-Then:
-```bash
-git add first-note.md
-```
-**Explanation:** **add** tells Git which change you want to include in the next recorded version.
+**Step 2: Push (Uploading to the cloud)**
+*   **If using Terminal:**
+    ```bash
+    git push
+    ```
+    *(Explanation: **push** sends your committed history to GitHub).*
+*   **If using GitHub Desktop App:**
+    Click the **Push origin** button at the very top of the window.
 
-Then:
-```bash
-git status
-```
-
-Then:
-```bash
-git commit -m "Add my first lab note"
-```
-**Explanation:** **commit** records a version in Git history.
-
-Then:
-```bash
-git push
-```
-**Explanation:** **push** sends your committed history to GitHub.
-
-Now, refresh GitHub in your browser.
+**Step 3: Verify (GitHub Online)**
+Refresh your GitHub repository in your web browser. You will now see `first-note.md` sitting securely on the internet!
 **Wet-lab analogy:** You recorded your results permanently in the notebook, and stored a copy in the secure online locker.
 
 **Success:**
 - [ ] I created a file
-- [ ] I checked git status
+- [ ] I checked status
 - [ ] I staged the file
 - [ ] I committed it
 - [ ] I pushed it
 - [ ] I can see it on GitHub
 
+---
+
 ## DAY 5 — Learn Branches
 
-**Goal:** Make a safe experimental copy.
+**Goal:** Make a temporary "photocopy" where you can safely experiment without ruining the main project.
 **Time needed:** 10 minutes.
-
-**Explanation:** A **branch** is a separate line of work.
 **Wet-lab analogy:** Making a safe experimental copy of your main protocol to try a new reagent.
 
-**Commands:**
-```bash
-git switch -c experiment
-```
-Make a small change to your `first-note.md` file.
+**Step 1: Create the Branch**
+*   **If using Terminal:**
+    ```bash
+    git switch -c experiment
+    ```
+*   **If using GitHub Desktop App:**
+    Click the **Current Branch: main** tab at the top. Click **New Branch**, name it "experiment", and click Create.
 
-Then:
-```bash
-git status
-git add first-note.md
-git commit -m "Try an experiment"
-```
+**Step 2: Make a change and save it**
+Make a small change to your `first-note.md` file and save it.
+*   **If using Terminal:** Run `git add first-note.md` then `git commit -m "Try an experiment"`.
+*   **If using GitHub Desktop App:** Check the box, type a summary, and click **Commit to experiment**.
 
-Return to the main branch:
-```bash
-git switch main
-```
-The experimental change may no longer appear in the working file. You can bring it back by merging later.
+**Step 3: Return to the main branch**
+*   **If using Terminal:**
+    ```bash
+    git switch main
+    ```
+*   **If using GitHub Desktop App:**
+    Click the **Current Branch** tab at the top and select **main**.
 
-**Success:** I understand that a branch lets me experiment separately from the main line.
+*Magic moment:* Look at `first-note.md` on your computer. The experimental sentence is gone! Because you switched back to `main`, Git changed the physical file back to how it was. You can bring it back by merging later.
+
+**Success:** I understand that a branch lets me experiment safely.
+
+---
 
 ## DAY 6 — Explore a Real Scientific Repository
 
-**Goal:** Learn from others.
+**Goal:** See how professional scientists use this system.
+**Where:** **Strictly GitHub Online**
 **Time needed:** 15 minutes.
+
 **Steps:**
 1. Choose one repository from the Free University list (`04-free-university-7-repos.md`).
-2. Open the repository.
-3. Read the README.
-4. Look at the documentation.
-5. Look at Issues if available.
-6. Find one issue.
-7. Identify what problem the issue describes.
+2. Open the repository in your web browser.
+3. Read the README and documentation.
+4. Look at the **Issues** tab to see how they discuss bugs and problems.
+5. Find one issue and identify the problem it describes.
 
-**Explanation:** Issues are where projects can track bugs, questions, tasks and improvements.
 **Wet-lab analogy:** An issue is similar to recording a problem with an experiment instead of silently forgetting it.
+
+---
 
 ## DAY 7 — Build Your Own Digital Lab Notebook
 
-**Goal:** Start a real project.
+**Goal:** Start a real project using your new skills.
 **Time needed:** 15 minutes.
-**Steps:**
-Copy `template/README_template.md` and use it for a real mini-project.
 
-Fill in:
-* Goal
-* Date
-* What I tried
-* What broke
-* How I fixed it
-* Next
+**Step 1: Prepare the file (On your computer)**
+Copy `template/README_template.md` and move it into your `my-first-lab-book` folder. Rename it to `README.md` and fill in the sections for a real mini-project.
 
-**Commands:**
-```bash
-git status
-git add README.md
-git commit -m "Add my first project notes"
-git push
-```
+**Step 2: Record and Upload**
+*   **If using Terminal:**
+    ```bash
+    git status
+    git add README.md
+    git commit -m "Add my first project notes"
+    git push
+    ```
+*   **If using GitHub Desktop App:**
+    Write "Add my first project notes" in the summary box. Click **Commit to main**, then click **Push origin** at the top.
 
 **Success:** I now have a real GitHub project containing my own scientific thinking and its history.
 
