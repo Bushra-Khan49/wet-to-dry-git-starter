@@ -1,0 +1,16 @@
+# Beginner Git Vocabulary
+
+* **Git**: Software on your computer that tracks changes to files. (*A digital lab notebook.*)
+* **GitHub**: An online service where you can store and share Git repositories. (*The secure online locker for your notebook.*)
+* **repository**: A project folder that Git watches. (*The physical binder holding your project.*)
+* **clone**: Make a working copy of a GitHub repository on your computer. (*Photocopying a notebook to work on.*)
+* **status**: Check what changes Git sees. (*"What changed in my lab notebook?"*)
+* **add**: Tell Git to include a change in the next recorded version. (*"Put this result on the tray for recording."*)
+* **commit**: Record a version permanently in Git history. (*"Write this version into the lab log."*)
+* **push**: Send your committed history to GitHub. (*"Send that recorded version to the secure online copy."*)
+* **pull**: Bring changes from GitHub back to your computer. (*"Bring the latest online version back to my computer."*)
+* **branch**: A separate, safe line of work. (*"Make a safe experimental copy."*)
+* **merge**: Bring changes from a branch back into the main line. (*"Bring the successful experiment back into the main work."*)
+* **remote**: A version of your repository hosted on the internet, like GitHub. (*The central lab archive.*)
+* **working directory**: The folder on your computer where you are currently editing files. (*Your lab bench.*)
+* **staging area**: Where files go after you `add` them, waiting to be `commit`ted. (*The tray of results ready to be logged.*)

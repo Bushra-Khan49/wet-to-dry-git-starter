@@ -1,0 +1,40 @@
+# ===== SEQUENCING DATA =====
+# Do not put large sequencing files into normal Git history.
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.sam
+*.bai
+*.cram
+*.vcf.gz
+
+# ===== LARGE DATA / RESULTS =====
+results/
+raw_data/
+large_files/
+
+# ===== PYTHON =====
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# ===== SYSTEM FILES =====
+.DS_Store
+Thumbs.db
+
+# ===== ENVIRONMENT / SECRETS =====
+.env
+.env.*
+*.pem
+*.key
+
+# ===== LOCAL CONFIG =====
+.vscode/
+.idea/
+
+# Note: .gitignore tells Git which untracked files it should normally ignore.
+# It is NOT a security system. 
+# A PDF can be useful documentation. Only ignore PDFs if they are large, sensitive, or not meant to be version-controlled.
+# Also, .gitignore does not remove a file that has already been committed.
