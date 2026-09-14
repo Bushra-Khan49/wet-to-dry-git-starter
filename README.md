@@ -1,4 +1,4 @@
-# Git for Scientists: Your Digital Lab Notebook
+# Git for Academics: Your Digital Lab Notebook
 
 If you have never used Git, start here. This repository is for you.
 
